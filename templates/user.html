@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comments</title>
+</head>
+<body>
+<h1>Comments</h1>
+
+<form action="/add_comment" method="post">
+    <input type="text" name="text" placeholder="Add a comment">
+    <button type="submit">Submit</button>
+</form>
+<ul>
+    {% for comment in comments %}
+    <li><h4>{{ comment.text }}:{{ comment.status }}</h4></li>
+    {% endfor %}
+</ul>
+</body>
+</html>

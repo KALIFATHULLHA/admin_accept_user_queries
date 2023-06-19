@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+</head>
+<body>
+<h1>Admin</h1>
+<ul>
+    {% for comment in comments %}
+    <li>
+        <h4>
+            {{ comment.text }}
+            {% if comment.status == 'pending' %}
+            [<a href="/approve_comment/{{ comment.id }}">Approve</a>]
+            [<a href="/reject_comment/{{ comment.id }}">Reject</a>]
+            {% endif %}
+            {% if comment.status == "approved" %}
+            <h4  style="color:darkgreen"> {{ comment.status }} </h4>
+            {% else %}
+             <h4  style="color:darkred"> {{ comment.status }} </h4>
+            {% endif %}
+    </li>
+    </h4>
+
+    {% endfor %}
+</ul>
+</body>
+</html>
